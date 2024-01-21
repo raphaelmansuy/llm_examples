@@ -8,6 +8,9 @@ output_parser = StrOutputParser()
 
 chain = prompt | model | output_parser
 
-res = chain.invoke({"topic": "ice cream"})
+#res = chain.invoke({"topic": "ice cream"})
 
-print(res)
+#print(res)
+
+for chunk in chain.stream({"topic": "bears"}):
+  print(chunk, end="", flush=True)  
